@@ -1,0 +1,21 @@
+.equipmentTable {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.tableHead {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.addEquipment {
+  margin-left: auto;
+  border-radius: 20px;
+  padding: 9.5px 20px 9.5px 10px;
+  background-color: #454bba;
+  color: #fff;
+}

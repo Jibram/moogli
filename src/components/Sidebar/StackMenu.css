@@ -1,0 +1,48 @@
+.stackMenu {
+  padding: 8px 16px;
+}
+
+.myTask {
+  color: #6a6f85;
+  padding-top: 8px;
+}
+
+.taskTitle {
+  height: 15px;
+  padding-right: 8px;
+  padding-left: 8px;
+  font-size: 10px;
+  line-height: 150%;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.menuItem {
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+.selected {
+  font-weight: 500;
+  color: #060f33;
+}
+
+.subMenuItem {
+  padding: 10px 10px 10px 18px;
+  color: #6a6f85;
+  font-weight: 400;
+}
+
+.selectedSubMenu {
+  border-radius: 6px;
+  color: #060f33;
+  background-color: #f7f9fc;
+  font-weight: 500;
+}
+
+.locked {
+  color: #6a6f85;
+}

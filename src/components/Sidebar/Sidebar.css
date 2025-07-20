@@ -1,0 +1,30 @@
+.sidebar {
+  background-color: #ffffff;
+  box-sizing: border-box;
+  width: 250px;
+  height: 100vh;
+  border-right: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar > div {
+  box-sizing: border-box;
+}
+
+.logoAndPanelControl {
+  width: 100%;
+  padding: 24px 16px 16px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sidebarLogo {
+  width: 112px;
+  height: 32px;
+}
+
+.panelControl {
+  margin-left: auto;
+}

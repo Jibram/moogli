@@ -1,0 +1,41 @@
+.contentArea {
+  background-color: #f7f9fc;
+  color: #6a6f85;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: 24px;
+}
+
+.breadcrumbs {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  color: #060f33;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.subTitle {
+  font-size: 17px;
+}
+
+.navHeader {
+  font-size: 17px;
+  line-height: 140%;
+}
+
+.currentNavTitle {
+  text-decoration: underline;
+  font-weight: 500; /* bold is too */
+  color: #060f33;
+}
