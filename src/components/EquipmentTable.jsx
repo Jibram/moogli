@@ -1,7 +1,7 @@
 import "./EquipmentTable.css";
 import { memo } from "react";
 
-const EquipmentTable = ({ data, handleModal, handleEditSidebar }) => {
+const EquipmentTable = ({ data, handleReviewModal, handleEditSidebar }) => {
   const tableColumns = [
     "Equipment Name",
     "Refrigerant type",
@@ -112,7 +112,7 @@ const EquipmentTable = ({ data, handleModal, handleEditSidebar }) => {
                         <button
                           className="addDataButton"
                           onClick={() => {
-                            handleModal(item.uuid);
+                            handleReviewModal(item.uuid);
                           }}
                         >
                           Add data

@@ -237,7 +237,6 @@ const EquipmentDetailsEdit = ({ uuid, closeEditSidebar }) => {
 
   const handleInfoClick = () => {
     setShowInfoTooltip(!showInfoTooltip);
-    console.log("Info icon clicked!");
   };
 
   const handleDisposedToggle = () => {

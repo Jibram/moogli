@@ -9,7 +9,12 @@ const TAB_ITEMS = Object.freeze({
   REVIEWS: "reviews",
 });
 
-const EditSidebar = ({ uuid, closeEditSidebar, handleModal }) => {
+const EditSidebar = ({
+  uuid,
+  closeEditSidebar,
+  handleReviewModal,
+  openInfoModal,
+}) => {
   const [selectedTab, setSelectedTab] = useState(TAB_ITEMS.DETAILS);
   const { equipmentData } = useContext(EquipmentContext);
   const equipment = equipmentData.find((equipment) => equipment.uuid === uuid);
@@ -48,7 +53,11 @@ const EditSidebar = ({ uuid, closeEditSidebar, handleModal }) => {
           />
         )}
         {selectedTab === TAB_ITEMS.REVIEWS && (
-          <EquipmentReviewsEdit uuid={uuid} handleModal={handleModal} />
+          <EquipmentReviewsEdit
+            uuid={uuid}
+            handleReviewModal={handleReviewModal}
+            openInfoModal={openInfoModal}
+          />
         )}
       </div>
     </div>

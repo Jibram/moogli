@@ -5,13 +5,16 @@ import TotalConsumption from "./TotalConsumption.jsx";
 import EquipmentTable from "./EquipmentTable.jsx";
 import EditSidebar from "./EditSidebar.jsx";
 import PeriodicReviewModal from "./PeriodicReviewModal.jsx";
+import PeriodicReviewInfoModal from "./InfoModal.jsx";
 
 const ContentArea = () => {
   // Read-only component
   const { equipmentData } = useContext(EquipmentContext);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [modalItemIndex, setModalItemIndex] = useState(-1);
+
+  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
 
   const [isEditSidebarOpen, setIsEditSidebarOpen] = useState(false);
   const [editItemIndex, setEditItemIndex] = useState(-1);
@@ -29,9 +32,9 @@ const ContentArea = () => {
   }, [equipmentData]);
 
   // Set uuid to -1 to hide Modal
-  const handleModal = useCallback((uuid) => {
+  const handleReviewModal = useCallback((uuid) => {
     setModalItemIndex(uuid);
-    setIsModalOpen(uuid > -1);
+    setIsReviewModalOpen(uuid > -1);
   }, []);
 
   // Set uuid to -1 to hide Modal
@@ -62,21 +65,26 @@ const ContentArea = () => {
         <TotalConsumption />
         <EquipmentTable
           data={formatEquipmentData}
-          handleModal={handleModal}
+          handleReviewModal={handleReviewModal}
           handleEditSidebar={handleEditSidebar}
         />
       </div>
-      {isModalOpen && (
+      {isReviewModalOpen && (
         <PeriodicReviewModal
           uuid={modalItemIndex}
-          closeModal={() => handleModal(-1)}
+          closeModal={() => handleReviewModal(-1)}
+          openInfoModal={() => setIsInfoModalOpen(true)}
         />
+      )}
+      {isInfoModalOpen && (
+        <PeriodicReviewInfoModal closeModal={() => setIsInfoModalOpen(false)} />
       )}
       {isEditSidebarOpen && (
         <EditSidebar
           uuid={editItemIndex}
-          handleModal={handleModal}
+          handleReviewModal={handleReviewModal}
           closeEditSidebar={() => handleEditSidebar(-1)}
+          openInfoModal={() => setIsInfoModalOpen(true)}
         />
       )}
     </>

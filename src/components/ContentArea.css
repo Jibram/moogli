@@ -46,4 +46,5 @@
 .info {
   color: #4b7beb;
   font-size: 24px;
+  cursor: pointer;
 }

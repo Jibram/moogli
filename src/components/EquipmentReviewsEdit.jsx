@@ -2,7 +2,7 @@ import "./EquipmentReviewsEdit.css";
 import { useContext, memo } from "react";
 import { EquipmentContext } from "../context/EquipmentContext";
 
-const EquipmentReviewsEdit = ({ uuid, handleModal }) => {
+const EquipmentReviewsEdit = ({ uuid, handleReviewModal, openInfoModal }) => {
   const { equipmentData, updateEquipment } = useContext(EquipmentContext);
 
   const deleteReview = (keyToDelete) => {
@@ -35,7 +35,15 @@ const EquipmentReviewsEdit = ({ uuid, handleModal }) => {
       <div className="equipmentReviews">
         <div className="equipmentReviewsHeader">
           Periodic Reviews
-          <span className="material-symbols-outlined info">info</span>
+          <span
+            className="material-symbols-outlined info"
+            onClick={(e) => {
+              e.stopPropagation();
+              openInfoModal();
+            }}
+          >
+            info
+          </span>
         </div>
         <div className="equipmentReviewsGridRow equipmentReviewsTableHeadLabels">
           <div className="equipmentReviewsColumnLabel">Date of review</div>
@@ -82,7 +90,7 @@ const EquipmentReviewsEdit = ({ uuid, handleModal }) => {
 
             <button
               className="equipmentReviewsAddButton"
-              onClick={() => handleModal(uuid)}
+              onClick={() => handleReviewModal(uuid)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +113,7 @@ const EquipmentReviewsEdit = ({ uuid, handleModal }) => {
           <div className="addPeriodicReviewContainer">
             <button
               className="addPeriodicReview"
-              onClick={() => handleModal(uuid)}
+              onClick={() => handleReviewModal(uuid)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

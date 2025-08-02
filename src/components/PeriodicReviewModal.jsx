@@ -2,7 +2,7 @@ import "./PeriodicReviewModal.css";
 import { useContext, useState, useRef } from "react";
 import { EquipmentContext } from "../context/EquipmentContext";
 
-const PeriodicReviewModal = ({ uuid, closeModal }) => {
+const PeriodicReviewModal = ({ uuid, closeModal, openInfoModal }) => {
   const { equipmentData, updateEquipment } = useContext(EquipmentContext);
 
   // Specific equipment we are adding reviews to
@@ -117,8 +117,19 @@ const PeriodicReviewModal = ({ uuid, closeModal }) => {
   return (
     <div className="modalBackdrop" onClick={closeModal}>
       <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-        <div className="modalHeader">
-          Add Periodic Reviews
+        <div className="modalHeaderContainer">
+          <div className="modalHeader">
+            Add Periodic Reviews
+            <span
+              className="material-symbols-outlined info"
+              onClick={(e) => {
+                e.stopPropagation();
+                openInfoModal();
+              }}
+            >
+              info
+            </span>
+          </div>
           <button className="modalCloseButton" onClick={closeModal}>
             &times;
           </button>

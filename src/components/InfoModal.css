@@ -1,0 +1,74 @@
+/* Modal Styles */
+.infoModalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensure it's on top of everything */
+}
+
+.infoModalContent {
+  background-color: #fff;
+  width: 1104px;
+  padding: 48px;
+  border-radius: 16px;
+  border: 1px solid #e9ebf2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoModalHeader {
+  color: #454bba;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 24px;
+  border-bottom: 1px solid #e9ebf2;
+}
+
+.filled-icon {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.closeInfoModal {
+  margin-left: auto;
+  font-size: 32px;
+}
+
+.infoModalWhy {
+  background-color: #ebf0fd;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoModalWhyHeader {
+  color: #4b7beb;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.infoModalWhyContent {
+  color: #060f33;
+  font-size: 17px;
+}
+
+.infoRestHeader {
+  color: #060f33;
+  font-size: 24px;
+  font-weight: 500;
+}

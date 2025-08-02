@@ -22,12 +22,6 @@ export const EquipmentProvider = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(equipmentData);
-    // This function will trigger every time equipmentData is updated
-    // Feel free to PATCH or POST depending on the difference.
-  }, [equipmentData]);
-
   const value = { equipmentData, updateEquipment };
 
   return (
