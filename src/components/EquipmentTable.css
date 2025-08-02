@@ -1,15 +1,27 @@
-.equipmentTable {
-  background-color: #fff;
-  width: 100%;
+/* Entire visible component that includes table */
+.equipmentTableContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   border-radius: 16px;
-  box-sizing: border-box;
+  min-height: 0;
 }
 
-.tableHead {
+/* Learn more and Add Equipment button styles */
+.tablePreHead {
+  background-color: #fff;
   padding: 16px 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.learnMore {
+  font-weight: 500;
+  font-size: 17px;
+  color: #4b7beb;
 }
 
 .addEquipment {
@@ -18,4 +30,126 @@
   padding: 9.5px 20px 9.5px 10px;
   background-color: #454bba;
   color: #fff;
+}
+
+/* Equipment table structure */
+.equipmentTable {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #060f33;
+  font-size: 16px;
+  line-height: 150%;
+  min-height: 0;
+}
+
+.tableHead {
+  background-color: #f7f9fc;
+  color: #6a6f85;
+  flex-shrink: 0;
+}
+
+.tableContents {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.categoryRowContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryRow {
+  padding: 12px 24px;
+  border-bottom: 1px solid #f2f4fa;
+}
+
+.grid-table-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.8fr 0.9fr 1.3fr 1.1fr 1.1fr 1.1fr 1.2fr;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #f2f4fa;
+  min-width: 1300px;
+}
+
+/* Styling for column label text */
+.columnLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.columnSetting {
+  margin-left: auto;
+  min-width: 24px;
+  min-height: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.categoryArrowIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.rowOfData {
+  padding: 20px 0px 20px 0px;
+}
+
+.columnData {
+  text-align: center;
+}
+
+.equipmentName {
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+
+.locationContainer {
+  text-align: left;
+}
+
+.statusContainer {
+  text-align: left;
+  border: 1px solid #e0e3eb;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.locationDescriptor,
+.statusTimeline {
+  color: #6a6f85;
+  font-size: 12px;
+}
+
+/* Buttons for each equipment entry */
+.actions {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  padding-right: 16px;
+}
+
+.editDataButton {
+  border-radius: 20px;
+  border: 1px solid #454bba;
+  background-color: #fff;
+  color: #454bba;
+  padding: 8.5px 19px;
+}
+
+.addDataButton {
+  border-radius: 20px;
+  background-color: #454bba;
+  color: #fff;
+  padding: 8.5px 19px;
 }

@@ -1,0 +1,62 @@
+.sidebarBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 999; /* Ensure it's on top of everything */
+}
+
+.sidebarContent {
+  margin-left: auto;
+  background-color: #fff;
+  max-width: 1104px;
+  min-width: 800px;
+  width: 75%;
+  height: 100%;
+  border: 1px solid #e9ebf2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarHeader {
+  padding: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #060f33;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebarCloseButton {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.sidebarTabContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sidebarTab {
+  flex: 1;
+  color: #6a6f85;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  padding: 16px;
+  border-bottom: 4px solid #f2f4fa;
+}
+
+.sidebarTabSelected {
+  color: #454bba;
+  font-weight: 500;
+  border-bottom: 4px solid #454bba;
+}

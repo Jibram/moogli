@@ -1,0 +1,154 @@
+.equipmentReviewsContainer {
+  background-color: #fff;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+}
+
+.equipmentConsumptionContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.equipmentConsumptionTotal {
+  flex: 1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: 1px solid #e9ebf2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.equipmentConsumptionLabel {
+  color: #6a6f85;
+}
+
+.equipmentConsumptionQuantity {
+  color: #060f33;
+  font-weight: 500;
+}
+
+.equipmentReviews {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid #e9ebf2;
+  height: 100%;
+}
+
+.equipmentReviewsHeader {
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #060f33;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.equipmentReviewsTableHeadLabels {
+  background-color: #f7f9fc;
+  color: #6a6f85;
+  font-weight: 500;
+}
+
+.equipmentReviewsGridRow {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 0.5fr;
+  gap: 10px;
+  border-bottom: 1px solid #f2f4fa;
+}
+
+.equipmentReviewsColumnLabel {
+  color: #6a6f85;
+  font-weight: 500;
+  padding: 8px 16px;
+}
+
+.equipmentReviewsNone {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Horizontal align */
+  align-items: center; /* Vertical align */
+  gap: 8px;
+}
+
+.equipmentReviewsIconCircle {
+  border-radius: 50%;
+  background-color: #f2f4fa;
+  height: 56px;
+  width: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.equipmentReviewsListEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.equipmentReviewsListEmptyTitle {
+  color: #060f33;
+  font-size: 24px;
+  font-weight: 500;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.equipmentReviewsListEmptySubtitle {
+  color: #6a6f85;
+  font-size: 17px;
+  text-align: center;
+}
+
+/* ADD Periodic Review */
+.equipmentReviewsAddButton {
+  background: none; /* Remove default button background */
+  border: 1px solid #eaebf7;
+  border-radius: 24px;
+  padding: 12px 24px 12px 12px;
+  margin: 0; /* Remove default button margin */
+  font: inherit; /* Inherit font styles from parent */
+  cursor: pointer; /* Ensure it still has a pointer cursor */
+  text-align: left; /* Align text to the left if needed */
+
+  display: flex; /* Use flexbox to align icon and text */
+  align-items: center; /* Vertically center icon and text */
+  gap: 6px; /* Space between the icon and text */
+
+  color: #454bba; /* The specific blue color from your image */
+  font-weight: 500;
+  font-size: 16px;
+
+  /* Add hover/focus states for visual feedback */
+  transition: color 0.2s ease-in-out;
+}
+
+.equipmentReviewsAddButton:hover {
+  color: #374151; /* A slightly darker shade on hover for feedback */
+}
+
+.equipmentReviewsAddButton:focus {
+  outline: none; /* Remove default outline */
+  /* Add a custom focus style if desired, e.g., a subtle underline or a slightly darker color */
+  text-decoration: underline;
+}
+
+.equipmentReviewsAddButton svg {
+  width: 20px; /* Adjust icon size */
+  height: 20px; /* Adjust icon size */
+  stroke: currentColor; /* Make SVG stroke color match button text color */
+}
+
+.addPeriodicReviewContainer {
+  padding: 24px;
+}

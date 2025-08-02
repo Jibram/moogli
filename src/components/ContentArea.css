@@ -1,4 +1,5 @@
 .contentArea {
+  flex: 1;
   background-color: #f7f9fc;
   color: #6a6f85;
   width: 100%;
@@ -6,6 +7,8 @@
   flex-direction: column;
   padding: 32px;
   gap: 24px;
+  min-width: 1300px;
+  box-sizing: border-box;
 }
 
 .breadcrumbs {
@@ -38,4 +41,9 @@
   text-decoration: underline;
   font-weight: 500; /* bold is too */
   color: #060f33;
+}
+
+.info {
+  color: #4b7beb;
+  font-size: 24px;
 }
