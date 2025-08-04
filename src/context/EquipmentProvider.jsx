@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useMemo, useState } from "react";
 import initialEquipmentData from "../data/dummydataraw.js";
 import { EquipmentContext } from "./EquipmentContext.js";
 
@@ -22,7 +22,9 @@ export const EquipmentProvider = ({ children }) => {
     }
   }, []);
 
-  const value = { equipmentData, updateEquipment };
+  const value = useMemo(() => {
+    return { equipmentData, updateEquipment };
+  }, [equipmentData, updateEquipment]);
 
   return (
     <EquipmentContext.Provider value={value}>
