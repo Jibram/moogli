@@ -1,5 +1,5 @@
 import "./EquipmentDetailsEdit.css";
-import { useState, useContext } from "react";
+import { memo, useContext, useMemo, useState } from "react";
 import { EquipmentContext } from "../context/EquipmentContext";
 
 const DETAILS_CONFIG = [
@@ -212,7 +212,9 @@ const DETAILS_CONFIG = [
 
 const EquipmentDetailsEdit = ({ uuid, closeEditSidebar }) => {
   const { equipmentData, updateEquipment } = useContext(EquipmentContext);
-  const equipment = equipmentData.find((equipment) => equipment.uuid === uuid);
+  const equipment = useMemo(() => {
+    return equipmentData.find((equipment) => equipment.uuid === uuid);
+  }, [equipmentData, uuid]);
 
   const [isEditingEquipmentDetails, setIsEditingEquipmentDetails] =
     useState(false);
@@ -420,4 +422,4 @@ const EquipmentDetailsEdit = ({ uuid, closeEditSidebar }) => {
   );
 };
 
-export default EquipmentDetailsEdit;
+export default memo(EquipmentDetailsEdit);

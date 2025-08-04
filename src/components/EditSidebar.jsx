@@ -1,5 +1,5 @@
 import "./EditSidebar.css";
-import { useContext, useState, memo } from "react";
+import { memo, useContext, useMemo, useState } from "react";
 import EquipmentDetailsEdit from "./EquipmentDetailsEdit.jsx";
 import EquipmentReviewsEdit from "./EquipmentReviewsEdit.jsx";
 import { EquipmentContext } from "../context/EquipmentContext";
@@ -17,7 +17,9 @@ const EditSidebar = ({
 }) => {
   const [selectedTab, setSelectedTab] = useState(TAB_ITEMS.DETAILS);
   const { equipmentData } = useContext(EquipmentContext);
-  const equipment = equipmentData.find((equipment) => equipment.uuid === uuid);
+  const equipment = useMemo(() => {
+    return equipmentData.find((equipment) => equipment.uuid === uuid);
+  }, [equipmentData, uuid]);
 
   return (
     <div className="sidebarBackdrop" onClick={closeEditSidebar}>

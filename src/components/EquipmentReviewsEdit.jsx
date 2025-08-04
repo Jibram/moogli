@@ -1,9 +1,14 @@
 import "./EquipmentReviewsEdit.css";
-import { useContext, memo } from "react";
+import { memo, useContext, useMemo } from "react";
 import { EquipmentContext } from "../context/EquipmentContext";
 
 const EquipmentReviewsEdit = ({ uuid, handleReviewModal, openInfoModal }) => {
   const { equipmentData, updateEquipment } = useContext(EquipmentContext);
+
+  // Specific equipment we are adding reviews to
+  const equipment = useMemo(() => {
+    return equipmentData.find((equipment) => equipment.uuid === uuid);
+  }, [equipmentData, uuid]);
 
   const deleteReview = (keyToDelete) => {
     const currentReviews = equipment.reviews || [];
@@ -12,9 +17,6 @@ const EquipmentReviewsEdit = ({ uuid, handleReviewModal, openInfoModal }) => {
     );
     updateEquipment(uuid, { reviews: updatedReviews });
   };
-
-  // Specific equipment we are adding reviews to
-  const equipment = equipmentData.find((equipment) => equipment.uuid === uuid);
 
   return (
     <div className="equipmentReviewsContainer">

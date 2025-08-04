@@ -1,12 +1,15 @@
 import "./PeriodicReviewModal.css";
-import { useContext, useState, useRef } from "react";
+import { useContext, useMemo, useState, useRef } from "react";
 import { EquipmentContext } from "../context/EquipmentContext";
 
 const PeriodicReviewModal = ({ uuid, closeModal, openInfoModal }) => {
   const { equipmentData, updateEquipment } = useContext(EquipmentContext);
 
   // Specific equipment we are adding reviews to
-  const equipment = equipmentData.find((equipment) => equipment.uuid === uuid);
+
+  const equipment = useMemo(() => {
+    return equipmentData.find((equipment) => equipment.uuid === uuid);
+  }, [equipmentData, uuid]);
 
   // Review form data fields, saved only when submitted.
   const [newReviews, setNewReviews] = useState([]);
