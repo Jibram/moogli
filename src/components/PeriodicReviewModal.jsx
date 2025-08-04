@@ -93,11 +93,20 @@ const PeriodicReviewModal = ({ uuid, closeModal, openInfoModal }) => {
   };
 
   const deleteReview = (keyToDelete) => {
-    const currentReviews = equipment.reviews || [];
-    const updatedReviews = currentReviews.filter(
-      (review) => review.key !== keyToDelete
-    );
-    updateEquipment(uuid, { reviews: updatedReviews });
+    // Check if the review to delete is a new, unsaved review
+    const isNewReview = newReviews.some((review) => review.key === keyToDelete);
+
+    if (isNewReview) {
+      setNewReviews((prevNewReviews) =>
+        prevNewReviews.filter((review) => review.key !== keyToDelete)
+      );
+    } else {
+      // If it's an existing review, update the equipment context
+      const updatedReviews = equipment.reviews.filter(
+        (review) => review.key !== keyToDelete
+      );
+      updateEquipment(uuid, { reviews: updatedReviews });
+    }
   };
 
   const clearForm = () => {
