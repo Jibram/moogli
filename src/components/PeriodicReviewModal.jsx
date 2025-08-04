@@ -80,13 +80,10 @@ const PeriodicReviewModal = ({ uuid, closeModal, openInfoModal }) => {
 
   // UPDATE COMPONENT STATE FUNCTIONS
   const appendReview = () => {
-    const savedReviewCount = equipment?.reviews ? equipment.reviews.length : 0;
-    const newReviewCount = newReviews?.length || 0;
-    const key = savedReviewCount + newReviewCount;
     setNewReviews((prevState) => [
       ...prevState,
       {
-        key: key,
+        key: Date.now(), // Generate a unique key
         date: date,
         refrigerantRefillQuantity: refrigerantRefillQuantity,
         file: file,
