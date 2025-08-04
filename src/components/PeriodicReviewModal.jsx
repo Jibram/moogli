@@ -93,6 +93,7 @@ const PeriodicReviewModal = ({ uuid, closeModal, openInfoModal }) => {
   };
 
   const deleteReview = (keyToDelete) => {
+    console.log(keyToDelete);
     // Check if the review to delete is a new, unsaved review
     const isNewReview = newReviews.some((review) => review.key === keyToDelete);
 
