@@ -1,6 +1,5 @@
 import "./ContentArea.css";
-import { useState, useMemo, useCallback, useContext } from "react";
-import { EquipmentContext } from "../context/EquipmentContext";
+import { useState, useCallback } from "react";
 import TotalConsumption from "./TotalConsumption.jsx";
 import EquipmentTable from "./EquipmentTable.jsx";
 import EditSidebar from "./EditSidebar.jsx";
@@ -8,9 +7,6 @@ import PeriodicReviewModal from "./PeriodicReviewModal.jsx";
 import PeriodicReviewInfoModal from "./InfoModal.jsx";
 
 const ContentArea = () => {
-  // Read-only component
-  const { equipmentData } = useContext(EquipmentContext);
-
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [modalItemIndex, setModalItemIndex] = useState(-1);
 
@@ -18,18 +14,6 @@ const ContentArea = () => {
 
   const [isEditSidebarOpen, setIsEditSidebarOpen] = useState(false);
   const [editItemIndex, setEditItemIndex] = useState(-1);
-
-  const formatEquipmentData = useMemo(() => {
-    const formattedData = {};
-    equipmentData.forEach((equipment) => {
-      if (!formattedData[equipment.category]) {
-        formattedData[equipment.category] = [];
-      }
-      formattedData[equipment.category].push(equipment);
-    });
-
-    return formattedData;
-  }, [equipmentData]);
 
   // Set uuid to -1 to hide Modal
   const handleReviewModal = useCallback((uuid) => {
@@ -64,7 +48,6 @@ const ContentArea = () => {
         </div>
         <TotalConsumption />
         <EquipmentTable
-          data={formatEquipmentData}
           handleReviewModal={handleReviewModal}
           handleEditSidebar={handleEditSidebar}
         />

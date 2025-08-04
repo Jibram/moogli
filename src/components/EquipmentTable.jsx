@@ -1,18 +1,34 @@
 import "./EquipmentTable.css";
-import { memo } from "react";
+import { memo, useContext, useMemo } from "react";
+import { EquipmentContext } from "../context/EquipmentContext";
 
-const EquipmentTable = ({ data, handleReviewModal, handleEditSidebar }) => {
-  const tableColumns = [
-    "Equipment Name",
-    "Refrigerant type",
-    "GWP factor",
-    "Capacity in kg",
-    "Refrigerant recharged (kg)",
-    "Emissions in kgCO2e",
-    "Location",
-    "Status",
-    "",
-  ];
+const tableColumns = [
+  "Equipment Name",
+  "Refrigerant type",
+  "GWP factor",
+  "Capacity in kg",
+  "Refrigerant recharged (kg)",
+  "Emissions in kgCO2e",
+  "Location",
+  "Status",
+  "",
+];
+
+const EquipmentTable = ({ handleReviewModal, handleEditSidebar }) => {
+  // Read-only component
+  const { equipmentData } = useContext(EquipmentContext);
+
+  const formatEquipmentData = useMemo(() => {
+    const formattedData = {};
+    equipmentData.forEach((equipment) => {
+      if (!formattedData[equipment.category]) {
+        formattedData[equipment.category] = [];
+      }
+      formattedData[equipment.category].push(equipment);
+    });
+
+    return formattedData;
+  }, [equipmentData]);
 
   return (
     <div className="equipmentTableContainer">
@@ -52,8 +68,8 @@ const EquipmentTable = ({ data, handleReviewModal, handleEditSidebar }) => {
         </div>
 
         <div className="tableContents">
-          {Object.keys(data).length > 0 &&
-            Object.keys(data)
+          {Object.keys(formatEquipmentData).length > 0 &&
+            Object.keys(formatEquipmentData)
               .sort()
               .map((category, categoryIndex) => (
                 <div key={categoryIndex} className="categoryRowContainer">
@@ -76,7 +92,7 @@ const EquipmentTable = ({ data, handleReviewModal, handleEditSidebar }) => {
                     {category}
                   </div>
                   {/* Equipment Items */}
-                  {data[category].map((item) => (
+                  {formatEquipmentData[category].map((item) => (
                     <div key={item.uuid} className="grid-table-row rowOfData">
                       <div className="equipmentName">
                         <span>{item.name}</span>
